@@ -1,0 +1,82 @@
+---
+title: "Week 1"
+author: "group 43"
+date: "2026-09-04"
+output: html_document
+---
+
+```{r download dplyr}
+#library(dplyr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+|            |
+|:-----------|
+| **Week 1** |
+
+```{r 1. Find the dataset “movies1.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? [4 points]}
+#observations
+NROW(movies1)*NCOL(movies1)
+#variables
+NROW(movies1)
+#subjects
+NCOL(movies1)
+#What consists of a subject? 
+#all data acquired from a singular entry/instance during the study
+```
+
+```{r 2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); interval; (iv) ratio. If present, name one example of such a variable present in your data set. [4 points]}
+#nominal 
+#present, an example of this is the "title" variable 
+
+#ordinal 
+#present, an example of this is the "vote_average" variable
+
+#interval 
+#present, an example of this is the "release_date" variable
+
+#ratio 
+#present, an example of this is the "budget" variable`
+
+```
+
+**3. A movie studio wants to know which types of movies are best at generating profit. The measure they use for this is the profitability ratio, which is defined as P R = Revenue Budget . Perform the following steps to provide the movie studio with an analysis which corresponds to their request:**
+
+```{r a.  Create the variable PR as the revenue of a movie divided by its budget. Report its mean, median, maximum, and minimum. [2 points]}
+movies1$PR <- movies1$revenue / movies1$budget
+summary(movies1$PR)
+```
+
+```{r b.  As you can probably see from your answer in a.), some movies have a PR of “Inf”. What does this mean? Why are some movies assigned this value? [2 points]}
+#because they made a revenue with a budget of $0
+```
+
+```{r c.  As you can probably see from your answer in a.), some movies have a PR of “NA”. What does this mean? Why are some movies assigned this value? [2 points]}
+#this is because the movie didn't make any revenue, causing the code to divide by 0.
+```
+
+```{r d.  For the movies that have a PR of “Inf”, set its PR to “NA”. After doing this, report the mean, median, maximum, and minimum of PR. How do you interpret the mean? [2 points]}
+movies1$PR[is.infinite(movies1$PR)] <- NA
+
+summary(movies1$PR)
+```
+
+```{r e.  What does a PR of at least one mean? What is the fraction of movies that have a PR of at least one? [2 points]}
+#this means that the movie didn't lose money, and made money is >1.
+movies1$PR[is.na(movies1$PR)] <- 0 #to exclude from being greater than 1
+countPR1 <- 0
+for (PR in movies1) {
+  countPR1 <- countPR1 + 1
+} 
+  print(countPR1)
+ # /sum(movies1$PR)
+
+```
+
+```{r f.  Create a boxplot of the variable PR. Make sure it has an appropriate title, and appropriate titles and labels for the x- and y-axis. Describe the shape of the boxplot. Give Q1, Q2, Q3 and Q4. What does this tell you about the nature of making money in the movies industry? [2 points]}
+boxplot(movies1$PR)
+#boxplot.default(x, ..., range = 1.5, width = NULL, varwidth = FALSE, notch = FALSE, outline = TRUE, names, plot = TRUE, border = par("fg"), col = "lightgray", log = "", pars = list(boxwex = 0.8, staplewex = 0.5, outwex = 0.5), ann = !add, horizontal = FALSE, add = FALSE, at = NULL)
+```
