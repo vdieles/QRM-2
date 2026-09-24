@@ -62,9 +62,22 @@ We encourage you to keep your code blocks, printing statements, and final answer
 1.  Find the dataset “movies2.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? \textbf{[4 points]}
 
 ```{r}
-#WRITE YOUR CODE HERE
+install.packages("readr")
+```
+
+```{r}
+library(readr)
+```
+
+
+```{r}
+movies2 <- read_tsv("movies2.tsv")
+nrow(movies2)
+ncol(movies2)
 
 ```
+
+Using the function nrow we find out how many rows there are which are all the observations while using ncol gives us the total amount of columns which are all the variables that are being measured. Each observation is a different movie that is being 
 
 **Your Answer:**
 
