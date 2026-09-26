@@ -195,9 +195,7 @@ both of these conclusions can also be witnessed in the histograms that were plot
 
 1 Is your dataset movies2.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]}
 
-*Your answer here:*
-
-Write your formulated response here.
+the dataset movies2.tsv is not the full population, but rather a sample of a larger population. this full population can be described as all movies ever made, of which the dataset is only a small sample (606). 
 
 2 For this question, you will assume that your data set is the full population.
 
