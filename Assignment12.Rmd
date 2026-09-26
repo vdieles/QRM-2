@@ -77,22 +77,17 @@ ncol(movies2)
 
 ```
 
-Using the function nrow we find out how many rows there are which are all the observations while using ncol gives us the total amount of columns which are all the variables that are being measured. Each observation is a different movie that is being 
+Using the nrow() function we find out how many rows there are in total which are all the observations while the ncol() function gives us the total amount of columns which are all the variables that are being measured. There are 606 subjects in total, where each subject represents a movie, and there are 19 variables where each variable is a different characteristic of the movie to measure.
 
-**Your Answer:**
-
-Write your response here.
 
 2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); continuous; (iv) discrete. If present, name one example of such a variable present in your data set. \textbf{[4 points]}
 
-```{r answer 2}
-#WRITE YOUR CODE HERE
+```{r}
+names(movies2)
 
 ```
 
-**Your Answer:**
-
-Write your response here.
+To see all our variables we use function names(). With this we were able to see that our data set contains nominal, continuous, and discrete variables but does not contain ordinal variables. An example of a nominal variable is genre since it represents categories without a natural order. An example of continuous variable is runtime which measures the duration fo a movie. An example of a discrete variable is vote count as the number of votes is counted in whole numbers. However, there does not appear to be an ordinal variable as non of the variables have a ranking system.
 
 3. A movie studio wants to know which types of movies give maximal revenue. Perform the following steps to provide the movie studio with an analysis which corresponds to their request:
 
