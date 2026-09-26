@@ -133,14 +133,14 @@ hist(movies2$revenue / 1000000,
      breaks = 20)
 
 ```
-The histogram above shows that most movies have relatively low revenues, while some movies earn extremely high revenues up to approximately 1500 millions. This creates a strongly right-skewed distribution. This suggests that movie revenues are unevenly distributed.
+The histogram above shows that most movies have relatively low revenues, while some movies earn extremely high revenues up to approximately 1500 millions. This creates a strongly right-skewed distribution. This suggests that movie revenues are unevenly distributed. This indicates that making money with movies is hard and highly unequal as only a small portion of movies generate high revenue.
 
 
 *Step d*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
+movies2$log_revenue <- log(movies2$revenue)
+movies2$log_revenue
 
 ```
 
