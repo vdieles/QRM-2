@@ -80,6 +80,7 @@ ncol(movies2)
 Using the nrow() function we find out how many rows there are in total which are all the observations while the ncol() function gives us the total amount of columns which are all the variables that are being measured. There are 606 subjects in total, where each subject represents a movie, and there are 19 variables where each variable is a different characteristic of the movie to measure.
 
 
+
 2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); continuous; (iv) discrete. If present, name one example of such a variable present in your data set. \textbf{[4 points]}
 
 ```{r}
@@ -88,6 +89,8 @@ names(movies2)
 ```
 
 To see all our variables we use function names(). With this we were able to see that our data set contains nominal, continuous, and discrete variables but does not contain ordinal variables. An example of a nominal variable is genre since it represents categories without a natural order. An example of continuous variable is runtime which measures the duration fo a movie. An example of a discrete variable is vote count as the number of votes is counted in whole numbers. However, there does not appear to be an ordinal variable as non of the variables have a ranking system.
+
+
 
 3. A movie studio wants to know which types of movies give maximal revenue. Perform the following steps to provide the movie studio with an analysis which corresponds to their request:
 
@@ -105,38 +108,33 @@ Each week consists of 1, 2, or 3 subquestions. The total amount of points you ca
 *Step a*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
+summary(movies2$revenue)
 
 ```
 
-**Your Answer:**
-
-Write your formulated response here.
+Using the summary() function we get the mean, median, maximum, and the minimum. The mean revenue of the movies is 84,950,000 and the median is 16,620,000. The minimum revenue a movie made is 0, while the maximum is 1,506,000,000. 
 
 *Step b*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
+movies2[which.max(movies2$revenue), c("title", "revenue")]
+movies2[which.min(movies2$revenue), c("title", "revenue")]
 
 ```
-
-**Your Answer:**
-
-Write your formulated response here.
+Using the function which.max(movies2,revenue) gives us the row with the highest revenue combined with c("title", "revenue") gives us only the title and revenue. The highest revenue earning movie was furious 7 earning 1,506,249,360 in revenue. The same is being done for the minimum earning movie but the function is changed to which.min() where the lowest revenue earning movie is The Velocity of Gary earning 0 in revenue.
 
 *Step c*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
+hist(movies2$revenue / 1000000,
+     main = "Distribution of Movie Revenue",
+     xlab = "Revenue (millions)",
+     ylab = "Number of Movies",
+     breaks = 20)
 
 ```
+The histogram above shows that most movies have relatively low revenues, while some movies earn extremely high revenues up to approximately 1500 millions. This creates a strongly right-skewed distribution. This suggests that movie revenues are unevenly distributed.
 
-**Your Answer:**
-
-Write your formulated response here.
 
 *Step d*
 
