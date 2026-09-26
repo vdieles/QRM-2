@@ -164,7 +164,7 @@ hist(movies2$log_revenue,
      xlim = c(5,25))
 ```
 
-The histogram appears to be skewed towards the right while also featuring what looks like a long tail and an outlier. these observations indicate that the histogram will have a negative skewness and that the kurtosis will be greater than 3.
+The histogram appears to be skewed towards the right while also featuring what looks like a long tail and an outlier. these observations indicate that the histogram will likely have a negative skewness and that the kurtosis will be greater than 3.
 
 *Step f*
 
@@ -174,17 +174,22 @@ library(moments)
 ```
 
 ```{r}
-skewness(movies2$revenue, na.rm = TRUE)
+skewness(movies2$revenue)
 
-kurtosis(movies2$revenue, na.rm = TRUE)
+kurtosis(movies2$revenue)
 
 skewness(movies2$log_revenue, na.rm = TRUE)
 
 kurtosis(movies2$log_revenue, na.rm = TRUE)
 
 ```
+For the variables revenue and log of revenue calculate their skewness and kurtosis. How do these numbers relate to the shape of the histograms that you estimated under d.) and e.)?
 
+for the revenue, the positive skewness indicates a right-skewed histogram and the large kurtosis indicates a very large tail and a larger chance for outliers.
 
+meanwhile for the log_revenue, the negative skewness instead indicates a left-skewed histogram while the albeit smaller than the revenue but still greater than 3 kurtosis still indicates a large tail and possibility for outliers. 
+
+both of these conclusions can also be witnessed in the histograms that were plotted in exercise d. and e. making it more likely for the hypotheses from earlier to be true.
 
 # Week 2
 
