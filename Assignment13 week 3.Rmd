@@ -468,9 +468,14 @@ Write your formulated response here.
 
 *step e*
 
-**Your Answer:**
+```{r}
+mean(movies_sample$PR)
+mean(movies1$PR)
 
-Write your formulated response here.
+
+```
+using the code for me gave a sample mean of 5.238139, so that's what I'll be using. 
+
 
 # Week 3
 
@@ -685,6 +690,7 @@ d.  Now, create a new data frame which is a random subsample of n=100 of
 ```{r}
 table(movies1$genre)
 
+
 movies1$genre2 <- ifelse(movies1$genre %in% c("Drama", "Comedy", "Thriller"),
                          movies1$genre, "Other")
 
@@ -694,14 +700,14 @@ table(movies1$genre2, useNA = "no")
 
 **Your Answer:**
 
-The three most popular genres are Drama, comedy and thriller. All remaining genres were categorized as "Other". The frequency table for genre2 is: Drama = 244, Comedy = 104, Thriller = 65, and Other = 92.
+The three most popular genres are Drama, comedy and thriller
 
 *step b*
 
 ```{r}
-genre_means <- aggregate(PR ~ genre2, data = movies1, mean, na.rm = TRUE)
+aggregate(PR ~ genre2, data = movies1, mean, na.rm = TRUE)
 
-genre_means
+genre_means <- aggregate(PR ~ genre2, data = movies1, mean, na.rm = TRUE)
 
 plot(as.factor(genre_means$genre2),
      genre_means$PR,
@@ -715,8 +721,8 @@ plot(as.factor(genre_means$genre2),
 **Your Answer:**
 
 the movie genre with the highest PR are the thriller movies with a PR of
-10.941 and the movie genre with the lowest PR are the Drama movies with a
-PR of 2.972.
+8.921 and the movie genre with the lowest PR are the Drama movies with a
+PR of 1.997
 
 *step c*
 
@@ -760,7 +766,7 @@ arrows(x, lower,
 
 **Your Answer:**
 
-The graph shows the mean PR for each movie genre with the corresponding 95% confidence intervals.
+see the code above
 
 *step d*
 
@@ -1502,7 +1508,7 @@ b.  According to IMDB, the average movie is rated with a 6.5. Using your
 ```{r}
 movies1 <- read.delim("movies1.tsv")
 
-thriller <- subset(movies1, genre == "Thriller")
+thriller <- subset(movies, genre == "Thriller")
 
 t.test(thriller$vote_average, conf.level = 0.99)
 
