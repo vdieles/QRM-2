@@ -406,18 +406,20 @@ e.  Using the formulas of the *Central Limit Theorem*, give the
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+mean(movies1$PR)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+the mean of the variable PR is 3.445837. this indicates that the average revenue was over 3x its budget.
 
 *step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
+movies_sample <- movies1[sample(nrow(movies1), 25), ]
+
+mean(movies_sample$PR)
 
 ```
 
@@ -428,7 +430,14 @@ Write your formulated response here.
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+sample_means <- numeric(100)
+
+for (i in 1:100) {
+  movies_sample <- movies1[sample(nrow(movies1), 25), ]
+  sample_means[i] <- mean(movies_sample$PR)
+}
+
+head(sample_means)
 
 ```
 
@@ -439,7 +448,16 @@ Write your formulated response here.
 *step d*
 
 ```{r}
-#WRITE YOUR CODE HERE
+summary(sample_means)
+
+mean(sample_means)
+
+sd(sample_means)
+
+hist(sample_means,
+     main = "Distribution of Sample Means",
+     xlab = "Sample Mean of PR")
+
 
 ```
 
