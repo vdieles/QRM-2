@@ -685,7 +685,6 @@ d.  Now, create a new data frame which is a random subsample of n=100 of
 ```{r}
 table(movies1$genre)
 
-
 movies1$genre2 <- ifelse(movies1$genre %in% c("Drama", "Comedy", "Thriller"),
                          movies1$genre, "Other")
 
@@ -695,14 +694,14 @@ table(movies1$genre2, useNA = "no")
 
 **Your Answer:**
 
-The three most popular genres are Drama, comedy and thriller
+The three most popular genres are Drama, comedy and thriller. All remaining genres were categorized as "Other". The frequency table for genre2 is: Drama = 244, Comedy = 104, Thriller = 65, and Other = 92.
 
 *step b*
 
 ```{r}
-aggregate(PR ~ genre2, data = movies1, mean, na.rm = TRUE)
-
 genre_means <- aggregate(PR ~ genre2, data = movies1, mean, na.rm = TRUE)
+
+genre_means
 
 plot(as.factor(genre_means$genre2),
      genre_means$PR,
@@ -716,8 +715,8 @@ plot(as.factor(genre_means$genre2),
 **Your Answer:**
 
 the movie genre with the highest PR are the thriller movies with a PR of
-8.921 and the movie genre with the lowest PR are the Drama movies with a
-PR of 1.997
+10.941 and the movie genre with the lowest PR are the Drama movies with a
+PR of 2.972.
 
 *step c*
 
@@ -761,7 +760,7 @@ arrows(x, lower,
 
 **Your Answer:**
 
-see the code above
+The graph shows the mean PR for each movie genre with the corresponding 95% confidence intervals.
 
 *step d*
 
