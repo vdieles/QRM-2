@@ -170,8 +170,13 @@ The histogram appears to be skewed towards the right while also featuring what l
 
 ```{r}
 install.packages("moments")
+
+```
+
+```{r}
 library(moments)
 ```
+
 
 ```{r}
 skewness(movies2$revenue)
@@ -208,9 +213,10 @@ e.  Using the formulas of the *Central Limit Theorem*, give the distribution of 
 *Step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+mean(movies2$vote_average)
 
 ```
+The mean of vote_average is approximately 6.05. 
 
 **Your Answer:**
 
@@ -219,7 +225,9 @@ Write your formulated response here.
 *Step b*
 
 ```{r}
-#WRITE YOUR CODE HERE
+movies_sample <- movies2[sample(nrow(movies2), 25), ]
+
+mean(movies_sample$vote_average)
 
 ```
 
@@ -230,7 +238,7 @@ Write your formulated response here.
 *Step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+
 
 ```
 
