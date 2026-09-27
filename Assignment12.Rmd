@@ -238,7 +238,14 @@ Write your formulated response here.
 *Step c*
 
 ```{r}
+sample_means <- numeric(100)
 
+for (i in 1:100) {
+  movies_sample <- movies2[sample(nrow(movies2), 25), ]
+  sample_means[i] <- mean(movies_sample$vote_average)
+}
+
+head(sample_means)
 
 ```
 
@@ -249,7 +256,15 @@ Write your formulated response here.
 *Step d*
 
 ```{r}
-#WRITE YOUR CODE HERE
+summary(sample_means)
+
+mean(sample_means)
+
+sd(sample_means)
+
+hist(sample_means,
+     main = "Distribution of Sample Means",
+     xlab = "Sample Mean of Vote Average")
 
 ```
 
@@ -258,6 +273,13 @@ Write your formulated response here.
 Write your formulated response here.
 
 *Step e*
+
+```{r}
+sd(movies2$vote_average)
+
+sd(movies2$vote_average) / sqrt(25)
+```
+
 
 **Your Answer:**
 
