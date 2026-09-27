@@ -183,9 +183,12 @@ install.packages("ggplot2")
 library(ggplot2)
 
 boxplot(movies1$PR,
-  main = "boxplot of PR",
-    xlab = "a",
-    ylab = "b")
+        main = "Boxplot of Profitability Ratio (PR)",
+        xlab = "Movies",
+        ylab = "Profitability Ratio (PR)")
+
+quantile(movies1$PR, probs = c(0.25, 0.50, 0.75, 1), na.rm = TRUE)
+
 ```
 
 **Your Answer:**
