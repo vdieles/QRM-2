@@ -348,13 +348,23 @@ When we assume the mean runtime is 107 minutes with a standard deviation of 22 m
 *step c*
 
 ```{r}
-#WRITE YOUR CODE HERE
+P_runtime <- mean(movies1$runtime >= 90 & movies1$runtime <= 120,
+                  na.rm = TRUE)
+P_runtime
+mean(movies1$runtime, na.rm = TRUE)
+sd(movies1$runtime, na.rm = TRUE)
 
+hist(movies1$runtime,
+     main = "Distribution of Movie Runtime",
+     xlab = "Runtime (minutes)")
+
+mean(movies1$runtime, na.rm = TRUE)
+sd(movies1$runtime, na.rm = TRUE)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+The empirical probability that a movie has a runtime between 90 and 120 minutes is 62.3% which is higher than the previously theoretical probability of 50.3% calculated in 2b. In 2b we assumed that the mean is 107 and the standard deviation is 22. This is actually very close to the actual mean and the actual standard deviation which are 106.95 minutes for the mean and 21.98 minutes for the standard deviation. Therefore, the assumption that causes the difference in results is mostl likely that we assumed that runtime is perfectly normal distributed while this is not true. Shown by the histogram we can see that runtime actually has a long right tail.
 
 *step d*
 
