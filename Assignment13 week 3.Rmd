@@ -192,8 +192,12 @@ quantile(movies1$PR, probs = c(0.25, 0.50, 0.75, 1), na.rm = TRUE)
 ```
 
 **Your Answer:**
+q_1 = 0.6239106
+q_2 = 1.9412588
+q_3 = 3.6700769
+q_4 = 426.6441000
 
-Write your formulated response here.
+there are 2 main observations that can be made from looking at these numbers. first off, the second quarter being greater than 1 shows that at least 50% of movies earn more revenue than they have to spend on their budget. secondly, the result of the 4th quarter is a lot higher than the other results. by looking at the boxplot we can see that this is the result of an outlier.
 
 # Week 2 
 1 Is your dataset movies1.tsv the full population, or is it a sample of a larger population? If the latter, how would you describe the full population? \textbf{[4 points]} 
