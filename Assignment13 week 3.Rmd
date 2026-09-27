@@ -1485,6 +1485,18 @@ Write your formulated response here.
 
 *step e*
 
+```{r}
+mean_PR <- mean(movies1$PR, na.rm = TRUE)
+sd_PR <- sd(movies1$PR, na.rm = TRUE)
+
+expected_mean <- mean_PR
+standard_error <- sd_PR / sqrt(25)
+
+expected_mean
+standard_error
+```
+
+
 **Your Answer:**
 
 Write your formulated response here.
