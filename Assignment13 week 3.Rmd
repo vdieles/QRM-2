@@ -332,7 +332,6 @@ P_not_M
 
 The probability that a movie has a male director (P(M)) is approximately 90.64% meaning that the probability that a movie does not have a male director (P(M')) is then 9.36%.
 
-The probability that a movie has a male director, \(P(M)\), is approximately 0.9064 (90.64%). The probability that a movie does not have a male director, \(P(M')\), is approximately 0.0936 (9.36%).
 
 *step b*
 
