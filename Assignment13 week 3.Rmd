@@ -204,7 +204,7 @@ there are 2 main observations that can be made from looking at these numbers. fi
 
 **Your Answer**
 
-the dataset movies1.tsv is not the full population, but rather a sample of a larger population. this full population can be described as all movies ever made, of which the dataset is only a small sample (606). 
+the dataset movies1.tsv is not the full population, but rather a sample of a larger population. this full population can be described as all movies ever made, of which the dataset is only a small sample (505). 
 
 
 2 Let M be the event that a movie director is male. Let R be the runtime of the movie. 
