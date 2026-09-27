@@ -495,7 +495,7 @@ b.  According to IMDB, the average movie is rated with a 6.5. Using your
 ```{r}
 movies1 <- read.delim("movies1.tsv")
 
-thriller <- subset(movies, genre == "Thriller")
+thriller <- subset(movies1, genre == "Thriller")
 
 t.test(thriller$vote_average, conf.level = 0.99)
 
@@ -563,7 +563,6 @@ d.  Assume that the variance of PR for movies with a male lead actor in
 *step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
 table(movies1$first_actor_gender)
 
 ```
