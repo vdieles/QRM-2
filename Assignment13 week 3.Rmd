@@ -426,7 +426,7 @@ mean(movies_sample$PR)
 
 **Your Answer:**
 
-Write your formulated response here.
+the mean I obtained here was 1.274117, which is very different from the mean in a. this indicates that it is likely for there to be a high kurtosis.
 
 *step c*
 
@@ -444,7 +444,9 @@ head(sample_means)
 
 **Your Answer:**
 
-Write your formulated response here.
+The result I got from running the code is as follows:
+
+[1] 1.751826 1.637100 1.321201 3.612340 2.332845 1.919232
 
 *step d*
 
@@ -464,7 +466,9 @@ hist(sample_means,
 
 **Your Answer:**
 
-Write your formulated response here.
+the mean is equal to 3.376
+the standard deviation is equal to 4.089132
+the shape of the distribution is right-tailed
 
 *step e*
 
@@ -479,7 +483,7 @@ standard_error <- sd_PR / sqrt(25)
 expected_mean
 standard_error
 ```
-using the code for me gave a sample mean of 5.238139, so that's what I'll be using. 
+the values obtained here are very close to the values in d, but not exactly the same.
 
 
 # Week 3
