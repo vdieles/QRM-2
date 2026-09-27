@@ -610,8 +610,11 @@ movies1$PR[is.infinite(movies1$PR)] <- NA
 male <- subset(movies1, first_actor_gender == "male")
 female <- subset(movies1, first_actor_gender == "female")
 
-var(male$PR, na.rm = TRUE)
-var(female$PR, na.rm = TRUE)
+var_male <- var(male$PR, na.rm = TRUE)
+var_female <- var(female$PR, na.rm = TRUE)
+
+var_male
+var_female
 
 ```
 
