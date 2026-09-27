@@ -63,22 +63,36 @@ Each week consists of 1, 2, or 3 subquestions. The total amount of points you ca
 1.  Find the dataset “movies1.tsv” on Canvas. Describe your data set: How many observations does it have. How many variables are there? How many subjects? What consists of a subject? \textbf{[4 points]}
 
 ```{r}
-#WRITE YOUR CODE HERE
+#observations
+NROW(movies1)*NCOL(movies1)
+#variables
+NROW(movies1)
+#subjects
+NCOL(movies1)
+
 ```
 
-**Your Answer:**
+all data acquired from a singular entry/instance during the study is what consists of a subject
 
 Write your response here.
 
 2. Which of the following types of variables are present in your data set? (i) nominal; (ii) ordinal; (iii); interval; (iv) ratio. If present, name one example of such a variable present in your data set.  \textbf{[4 points]} 
 
 ```{r}
-#WRITE YOUR CODE HERE
+names(movies1)
 ```
 
-**Your Answer:**
+**nominal**
+present, an example of this is the "title" variable 
 
-rite your response here.
+**ordinal** 
+present, an example of this is the "vote_average" variable
+
+**interval**
+present, an example of this is the "release_date" variable
+
+**ratio**
+present, an example of this is the "budget" variable`
 
 
 3. A movie studio wants to know which types of movies are best at generating profit. The measure they use for this is the profitability ratio, which is defined as $$PR=\frac{Revenue}{Budget}.$$ Perform the following steps to provide the movie studio with an analysis which corresponds to their request:
@@ -95,68 +109,83 @@ For each step, you should provide first all the code you used to answer the ques
 *Step a*
 
 ```{r}
-#WRITE YOUR CODE HERE
+movies1$PR <- movies1$revenue / movies1$budget
+summary(movies1$PR)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+mean = infinite
+median = 2.0409
+minimum = 0.0000
+maximum = infinite
 
 *Step b*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
-
+is.infinite(movies1$PR)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+the reason why some results show a PR of infinite is because they made a revenue with a budget of $0.
 
 *Step c*
 
 ```{r}
 
-#WRITE YOUR CODE HERE
+is.na(movies1$PR)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+the reason why PR is sometimes NA is because the movie didn't make any revenue, causing the code to divide by 0.
 
 *Step d*
 
 ```{r}
+movies1$PR[is.infinite(movies1$PR)] <- NA
 
-#WRITE YOUR CODE HERE
+summary(movies1$PR)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+the mean here can be interpreted as the mean excluding any results where PR was either infinite or NA.
 
 *Step e*
 
 ```{r}
-
-#WRITE YOUR CODE HERE
+movies1$PR[is.na(movies1$PR)] <- 0 #to exclude from being greater than 1
+countPR1 <- 0
+for (PR in movies1) {
+  countPR1 <- countPR1 + 1
+} 
+PR_fraction <- countPR1 / nrow(movies1)
+  print(PR_fraction)
 
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+using the code, we can determine that 3,96% of the dataset results in an NA.
 
 *Step f*
 
 ```{r}
+install.packages("ggplot2")
+```
 
-#WRITE YOUR CODE HERE
+```{r}
+library(ggplot2)
 
+boxplot(movies1$PR,
+  main = "boxplot of PR",
+    xlab = "a",
+    ylab = "b")
 ```
 
 **Your Answer:**
@@ -168,7 +197,7 @@ Write your formulated response here.
 
 **Your Answer**
 
-Write your formulated response here.
+the dataset movies1.tsv is not the full population, but rather a sample of a larger population. this full population can be described as all movies ever made, of which the dataset is only a small sample (606). 
 
 
 2 Let M be the event that a movie director is male. Let R be the runtime of the movie. 
