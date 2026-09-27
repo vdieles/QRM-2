@@ -369,13 +369,14 @@ The empirical probability that a movie has a runtime between 90 and 120 minutes 
 *step d*
 
 ```{r}
-#WRITE YOUR CODE HERE
-
+unique(movies1$director_gender)
+sum(movies1$runtime >= 120 & movies1$director_gender == "female", na.rm = TRUE) /
+sum(movies1$director_gender == "female", na.rm = TRUE)
 ```
 
 **Your Answer:**
 
-Write your formulated response here.
+The probability that a movie has a runtime of at least 120 minutes with a female director is approximately 22.73%.
 
 3 For this question, you will again use the profitability ratio PR. Make
 sure that PR is defined the same way as in question 3d of week 1. For
@@ -493,8 +494,6 @@ b.  According to IMDB, the average movie is rated with a 6.5. Using your
 *step a*
 
 ```{r}
-movies1 <- read.delim("movies1.tsv")
-
 thriller <- subset(movies1, genre == "Thriller")
 
 t.test(thriller$vote_average, conf.level = 0.99)
@@ -503,8 +502,10 @@ t.test(thriller$vote_average, conf.level = 0.99)
 
 **Your Answer:**
 
-we are 99% confident that the true mean vote average of thriller movies
-in the population lies between [5.644845, 6.299771] *step b*
+We are 99% confident that the true mean vote average of thriller movies
+in the population lies between [5.644845, 6.299771].
+
+*step b*
 
 ```{r}
 #WRITE YOUR CODE HERE
@@ -519,7 +520,7 @@ t.test(thriller$vote_average,
 five step procedure 1. hypothesis H₀: μ ≥ 6.5 the average rating of
 thriller movies is at least 6.5
 
-H₁: μ \< 6.5 the average rating of thriller movies is lower than 6.5
+1. μ \< 6.5 the average rating of thriller movies is lower than 6.5
 
 2.  significance level we use α = 0.05
 
@@ -569,7 +570,7 @@ table(movies1$first_actor_gender)
 
 **Your Answer:**
 
-There are 130 female lead actors and 352 male lead actors
+There are 130 movies with female lead actors and 352 movies with male lead actors
 
 *step b*
 
@@ -620,8 +621,8 @@ var_female
 
 **Your Answer:**
 
-variance of PR for movies with a male lead: 77.73981 Variance of PR for
-movies with a female lead: 1398.035
+variance of PR for movies with a male lead: 99.82828 Variance of PR for
+movies with a female lead: 1987.742. Therefore, PR shows considerably greater variability among movies with female lead actors in this sample.
 
 *step d*
 
